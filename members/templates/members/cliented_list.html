@@ -1,0 +1,103 @@
+{% extends "base1.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">Clientes<i class="fas fa-users"></i></h3>
+        <div class="col-md-3 pb-2">
+            <a href="{% url 'members-cliented-create' %}">
+                <button type="button" class="btn btn-success">
+                    Agregar Nuevo Cliente
+                </button>
+            </a>
+        </div>
+        {% if object_list %}
+        <div class="card card-body" style="overflow:scroll">
+            <table border="2" class="table table-hover table-primary" id="myTable">
+                <thead>
+                    <th>Nombre de la Empresa</th>
+                    <th>RUC</th>
+                    <th>Nexo</th>
+                    <th>Tel. Nexo</th>
+                    <th>Mail Nexo</th>
+                    <th>Contacto de Pago</th>
+                    <th>Tel. Contacto de Pago</th>
+                    <th>Mail Contacto de Pago</th>
+                    <th>Vinculacion</th>
+                    <th>Nota</th>
+                    <th>Pago Habitual</th>
+                    <th>Banco</th>
+                    <th>Titular</th>
+                    <th>Tipo de Cuenta</th>
+                    <th>Numero de Cuenta</th>
+                    <th>Documento de Cuenta</th>
+                    <th>Accion</th>
+                </thead>
+                <tbody class="text-dark">
+                    {% for cliented in object_list %}
+                        <tr>
+                            <td> {{ cliented.staff_name }} </td>
+                            <td> {{ cliented.numero_de_ruc }} </td>
+                            <td> {{ cliented.nombre_del_nexo }} </td>
+                            <td> {{ cliented.telefono_del_nexo }} </td>
+                            <td> {{ cliented.mail_del_nexo }} </td>
+                            <td> {{ cliented.nombre_contacto_pagos }} </td>
+                            <td> {{ cliented.telefono_contacto_pagos }} </td>
+                            <td> {{ cliented.mail_contacto_pagos }} </td>
+                            <td> {{ cliented.fecha_de_vinculacion }} </td>
+                            <td> {{ cliented.notas_adicionales }} </td>
+                            <td> {{ cliented.forma_de_pago_habitual }} </td>
+                            <td> {{ cliented.banco }} </td>
+                            <td> {{ cliented.titular_de_la_cuenta }} </td>
+                            <td> {{ cliented.tipo_de_cuenta }} </td>
+                            <td> {{ cliented.numero_de_cuenta }} </td>
+                            <td> {{ cliented.documento_de_cuenta }} </td>
+                            <td>
+                                <a href="{% url 'members-cliented-update' cliented.id %}">
+                                    <button type="button">
+                                        EDITAR
+                                    </button>
+                                </a>
+                                <a href="{% url 'members-cliented-logic-delete' cliented.id %}">
+                                    <button type="button" >
+                                        ELIMINAR
+                                    </button> 
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if object_list.has_previous %}
+                <a href="?=page=1">Primera</a>
+                <a href="?page={{object_list.previous_page_number}}">Anterior</a>
+            {% endif %}
+
+            Pagina {{ object_list.number }} de {{ object_list.paginator.num_pages }}   
+
+            {% if object_list.has_next %}
+                <a href="?page={{object_list.next_page_number}}">Siguiente</a>
+                <a href="?page={{object_list.paginator.num_pages}}">Ultima</a>
+            {% endif %}
+
+        </div>
+    {% else %}
+        <h1>No existen Clientes registrados.</h1>
+    {% endif %}
+    </div>
+</div>
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Error...',
+        text: "{{message}}",
+    })
+</script>
+{% endfor %}
+{% endif %}
+{% endblock %}

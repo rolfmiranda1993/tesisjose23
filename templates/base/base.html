@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sistema Pymes</title>
+
+        <link rel="icon" type="image/x-icon" href="{% static 'index/img/logo.png' %}">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static 'lib/adminlite/plugins/fontawesome-free/css/all.min.css' %}">
+        <!-- Tempusdominus Bootstrap 4 -->
+        <link rel="stylesheet"
+            href="{% static 'lib/adminlite/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="{% static 'lib/adminlite/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+        <!-- JQVMap -->
+        <link rel="stylesheet" href="{% static 'lib/adminlite/plugins/jqvmap/jqvmap.min.css' %}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{% static 'lib/adminlite/css/adminlte.min.css' %}">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="{% static 'lib/adminlite/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="{% static 'lib/adminlite/plugins/daterangepicker/daterangepicker.css' %}">
+        <!-- summernote -->
+        <link rel="stylesheet" href="{% static 'lib/adminlite/plugins/summernote/summernote-bs4.min.css' %}">
+        <link rel="stylesheet" href="{% static 'index/css/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'index/DataTables/datatables.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'index/DataTables/Buttons-2.0.1/css/buttons.dataTables.min.css' %}">
+
+  <script type="text/javascript" charset="utf8" src="{% static 'index/js/jquery.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'jquery-ui/jquery-ui.min.css' %}">
+  <script src="{% static 'jquery-ui/jquery-ui.min.js' %}"></script>
+  <script type="text/javascript" charset="utf8" src="{% static 'index/js/sweet.js' %}"></script>
+        <title>{% block title %}{% endblock title  %}</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Main CSS-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+        <!-- Font-icon css-->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        {% block extracss %}
+        {% endblock extracss %}
+    </head>
+    <body class="app sidebar-mini">
+        <!-- Navbar-->
+        <header class="app-header">
+            <a class="app-header__logo" href="#">Event Calendar</a>
+            <!-- Sidebar toggle button-->
+            <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+            <!-- Navbar Right Menu-->
+            <ul class="app-nav">
+                <li class="app-search">
+                    <input class="app-search__input" type="search" placeholder="Search" />
+                    <button class="app-search__button"><i class="fa fa-search"></i></button>
+                </li>
+                <!--Notification Menu-->
+                <li class="dropdown">
+                    <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
+                    <ul class="app-notification dropdown-menu dropdown-menu-right">
+                        <li class="app-notification__title">You have 4 new notifications.</li>
+                        <div class="app-notification__content">
+                            <li>
+                                <a class="app-notification__item" href="javascript:;">
+                                    <span class="app-notification__icon">
+                                        <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span>
+                                    </span>
+                                    <div>
+                                        <p class="app-notification__message">Lisa sent you a mail</p>
+                                        <p class="app-notification__meta">2 min ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="app-notification__item" href="javascript:;">
+                                    <span class="app-notification__icon">
+                                        <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span>
+                                    </span>
+                                    <div>
+                                        <p class="app-notification__message">Mail server not working</p>
+                                        <p class="app-notification__meta">5 min ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="app-notification__item" href="javascript:;">
+                                    <span class="app-notification__icon">
+                                        <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span>
+                                    </span>
+                                    <div>
+                                        <p class="app-notification__message">Transaction complete</p>
+                                        <p class="app-notification__meta">2 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <div class="app-notification__content">
+                                <li>
+                                    <a class="app-notification__item" href="javascript:;">
+                                        <span class="app-notification__icon">
+                                            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span>
+                                        </span>
+                                        <div>
+                                            <p class="app-notification__message">Lisa sent you a mail</p>
+                                            <p class="app-notification__meta">2 min ago</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="app-notification__item" href="javascript:;">
+                                        <span class="app-notification__icon">
+                                            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span>
+                                        </span>
+                                        <div>
+                                            <p class="app-notification__message">Mail server not working</p>
+                                            <p class="app-notification__meta">5 min ago</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="app-notification__item" href="javascript:;">
+                                        <span class="app-notification__icon">
+                                            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span>
+                                        </span>
+                                        <div>
+                                            <p class="app-notification__message">Transaction complete</p>
+                                            <p class="app-notification__meta">2 days ago</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
+                        <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
+                    </ul>
+                </li>
+                <!-- User Menu-->
+                <li class="dropdown">
+                    <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+                    <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                        <li>
+                            <a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Configuraciones</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Perfil</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'accounts:signout' %}"><i class="fa fa-sign-out fa-lg"></i> Salir</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <!-- Sidebar menu-->
+        <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+        <aside class="app-sidebar">
+            <div class="app-sidebar__user">
+                <div>
+                    <p class="app-sidebar__user-name">Jose Bittar</p>
+                    <p class="app-sidebar__user-designation">Ingeniero en Informatica</p>
+                </div>
+            </div>
+            <ul class="app-menu">
+                <li class="treeview">
+                    <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon nav-icon fa fa-calendar-o"></i><span class="app-menu__label">Calendario</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="treeview-item" href="{% url 'calendarapp:running_events' %}"><i class="nav-icon fa fa-code-fork"></i> Tareas Planificadas</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'calendarapp:all_events' %}"><i class="nav-icon fa fa-calendar-check-o"></i> Todas las Tareas</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'calendarapp:calendar' %}"><i class="nav-icon fa fa-calendar"></i> Vista de Calendario</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="treeview">
+                    <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon nav-icon far fa-object-group"></i><span class="app-menu__label">Equipo y Proveedores</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Colaboradores</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'pymes-cliente-list' %}"><i class="icon fa fa-circle-o"></i> Proveedores/Clientes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon nav-icon fas fa-sitemap"></i><span class="app-menu__label">Organigrama</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="treeview-item" href="{% url 'enter_staff2' %}"><i class="icon fa fa-circle-o"></i> Generico</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'enter_staff' %}"><i class="icon fa fa-circle-o"></i> Por Asignaciones</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'dashboard' %}"><i class="app-menu__icon fa fa-dashboard"></i> Flujos de trabajo</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'members-departamentod-list' %}"><i class="icon fa fa-circle-o"></i> Departamentos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon nav-icon fa fa-chart-line"></i><span class="app-menu__label">Ingresos y Egresos</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="treeview-item" href="{% url 'pymes-ingreso-list' %}"><i class="icon fa fa-circle-o"></i> Registro de Ingresos</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'pymes-egreso-list' %}"><i class="icon fa fa-circle-o"></i> Registro de Egresos</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'members-rubrod-list' %}"><i class="icon fa fa-suitcase"></i> Rubros</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fas fa-cogs"></i><span class="app-menu__label">Cofiguraciones</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="treeview-item" href="#"><i class="icon fa fa-globe"></i> Roles y permisos</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="#"><i class="icon fas fa-users-cog"></i> Usuarios</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <main class="app-content">
+            <div class="app-title">
+                {% block breadcrumb %}
+                {% endblock breadcrumb %}
+            </div>
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <!-- Essential javascripts for application to work-->
+        {% include 'base/js.html' %}
+        {% block extrascripts %}
+        {% endblock extrascripts %}
+    </body>
+</html>
